@@ -16,3 +16,7 @@ In package rest has 2 endpoints one for injected example and other with programm
 When injected objects are commented the code in Programmatically class doesn't work but if it isn't commented it works fine.
 
 Why and How does this happen? 
+
+It's likely due to the beans not being in the final jar as the AOT processing cannot see that its being used. This is an optimisation by Quarkus to only add beans that are actually injected.
+
+ https://quarkus.io/guides/cdi-reference#remove_unused_beans
